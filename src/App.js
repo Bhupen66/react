@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Signup from "./Page/Signup"; // Import Signup component
+import Login from "./Page/Login"; // Import Login component
+import Dashboard from "./Page/Dashboard"; // Import Dashboard component
+
+// Import the additional components for the new routes
+// import Home from "./Page/Home";
+// import Shop from "./Page/Shop";
+// import AboutUs from "./Page/AboutUs";
+// import Feedback from "./Page/Feedback";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Add the Navbar so it appears on every page */}
+
+
+      {/* Define routes to navigate to different pages */}
+      <Routes>
+        {/* Existing Routes */}
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        {/* New Routes for Home, Shop, About Us, and Feedback */}
+        {/* <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/feedback" element={<Feedback />} /> */}
+
+        {/* You can add more routes as needed */}
+      </Routes>
     </div>
   );
 }
