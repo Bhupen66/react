@@ -1,5 +1,5 @@
 import React from "react";
-import ContactUs from "../Components/contactus";
+import ContactUs from "./contactus";
 import Marquee from "react-fast-marquee";
 import Navbar from "../Components/Navbar";
 
@@ -108,7 +108,7 @@ function Dashboard() {
 
     </div>
         
-        <div id="about" className="w-full h-100%">
+        <div  className="w-full h-100%">
             {/* About Section */}
       <section id="about" className="py-24 bg-gray-800">
         <div className="container mx-auto text-center">
@@ -136,7 +136,7 @@ function Dashboard() {
           </div>
 
           {/* Additional Images */}
-          <div className="flex flex-col md:flex-row justify-center items-center md:space-x-10 mb-12">
+          <div  className="flex flex-col md:flex-row justify-center items-center md:space-x-10 mb-12">
             <img
               src="https://www.bugatti.com/media/jwxegfi4/hero-desktop.jpeg?width=1920&height=800&rnd=133343618819170000"
               alt="Our Services"
