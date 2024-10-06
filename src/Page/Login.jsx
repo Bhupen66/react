@@ -35,7 +35,7 @@ function Login() {
         setIsLogin(true);
         setUser(JSON.stringify(result.user));
         // On successful login, navigate to another page (e.g., dashboard or home)
-        navigate("/home"); // Change to your desired route
+        navigate("/Home"); // Change to your desired route
       } else {
         // Set error if login failed
         setError(result.message);

@@ -1,13 +1,13 @@
 import React from "react";
-import ContactUs from "./contactus";
 import Marquee from "react-fast-marquee";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 
 
 
 function Dashboard() { 
   
-  // const Navigation = useNavigate();
+   const navigate = useNavigate();
   // Array of image URLs
   const carImages = [
     'https://i.pinimg.com/originals/2a/78/1a/2a781a9c1bb85036c7ef6cf42a649ef8.png',
@@ -15,9 +15,11 @@ function Dashboard() {
     'https://i.pinimg.com/originals/b3/7b/86/b37b86a23eb4a02428c454d5c28bba27.png',
   ];
 
-  // const login = () => {
-  //   Navigation('/Login')
-  // }
+   const Contact = () => {
+     navigate('/Contact')
+   }
+
+
 
 
   // Array of alt texts for images
@@ -136,7 +138,7 @@ function Dashboard() {
           </div>
 
           {/* Additional Images */}
-          <div  className="flex flex-col md:flex-row justify-center items-center md:space-x-10 mb-12">
+          <div  className="flex truncate flex-col md:flex-row justify-center items-center md:space-x-10 mb-12">
             <img
               src="https://www.bugatti.com/media/jwxegfi4/hero-desktop.jpeg?width=1920&height=800&rnd=133343618819170000"
               alt="Our Services"
@@ -269,12 +271,12 @@ function Dashboard() {
           </div>
 
           <div className="mt-6">
-            <button onClick={ContactUs} className="bg-gradient-to-r from-yellow-500 to-red-500 hover:from-yellow-600 hover:to-red-600 text-white px-6 py-2 rounded-full transition duration-300 transform hover:scale-110 hover:rotate-3">
+            <button onClick={Contact} className="bg-gradient-to-r from-yellow-500 to-red-500 hover:from-yellow-600 hover:to-red-600 text-white px-6 py-2 rounded-full transition duration-300 transform hover:scale-110 hover:rotate-3">
               Contact Us
             </button>
           </div>
         </div>
-      </footer>   
+      </footer> 
         </div>
     </>
     

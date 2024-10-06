@@ -4,6 +4,8 @@ import Signup from "./Page/Signup"; // Import Signup component
 import Login from "./Page/Login"; // Import Login component
 import Dashboard from "./Page/Dashboard"; // Import Dashboard component
 import Art from "./Components/Art";
+import ContactUs from "./Page/contactus";
+import Home from "./Page/home";
 
 // Import the additional components for the new routes
 // import Home from "./Page/Home";
@@ -15,7 +17,6 @@ function App() {
   return (
     <div className="App">
       {/* Add the Navbar so it appears on every page */}
-      <Dashboard />
 
 
       {/* Define routes to navigate to different pages */}
@@ -24,8 +25,10 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Dashboard />} />
-        
+        <Route path="/Home" element={<Home/>} />
         <Route path="/Art" element={<Art />} />
+        <Route path="/Contact" element={<ContactUs />} />
+        
         {/* New Routes for Home, Shop, About Us, and Feedback */}
         {/* <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />

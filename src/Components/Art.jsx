@@ -2,6 +2,7 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { motion, useScroll } from "framer-motion";
+import Navbar from "./Navbar";
 
 // Car Model Component
 function CarModel({ url }) {
@@ -38,6 +39,7 @@ const ArtGallery = () => {
   const { scrollYProgress } = useScroll();
 
   return (
+    <>
     <div className="w-full min-h-screen bg-gray-900 text-white">
       <header className="text-center py-8">
         <h1 className="text-4xl font-bold">3D Car Art Gallery</h1>
@@ -47,7 +49,7 @@ const ArtGallery = () => {
       <motion.div
         className="flex w-full h-screen flex-col items-center space-y-10 overflow-y-auto"
         style={{ opacity: scrollYProgress }}
-      >
+        >
         <motion.div
           className="relative w-full h-100% max-w-lg"
           whileHover={{ scale: 1.05 }}
@@ -55,7 +57,7 @@ const ArtGallery = () => {
           style={{
             transform: `translateY(${scrollYProgress * 100}px)`,
           }}
-        >
+          >
           {/* 3D Car Display */}
           <CarGallery carModelUrl={cars[0].modelUrl} />
 
@@ -67,6 +69,7 @@ const ArtGallery = () => {
         </motion.div>
       </motion.div>
     </div>
+</>
   );
 };
 

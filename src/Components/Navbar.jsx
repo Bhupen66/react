@@ -1,11 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Art from "./Art";
-import Login from "../Page/Login";
-import Signup from "../Page/Signup";
 
 const Navbar = () => {
   const navigate = useNavigate();
+
+  const login = () => {
+    navigate('/login')
+  }
+
+  const Signup = () => {
+   navigate('/Signup')
+ }
+ 
+ const Art = () => {
+  navigate('/Art')
+}
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -14,6 +24,7 @@ const Navbar = () => {
     } else {
       navigate(`/dashboard#${sectionId}`);
     }
+    
   };
 
   return (
@@ -39,7 +50,7 @@ const Navbar = () => {
             Register
           </button>
           <button
-            onClick={Login}
+            onClick={login}
             className="flex text-2xl hover:text-white rounded-md transition duration-200"
           >
             Login
