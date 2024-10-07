@@ -6,6 +6,10 @@ import Dashboard from "./Page/Dashboard"; // Import Dashboard component
 import Art from "./Components/Art";
 import ContactUs from "./Page/contactus";
 import Home from "./Page/home";
+import Admindashboard from "./Page/Admindashboard";
+import AdminPanel from "./Page/AdminPanel";
+import Car from "./Page/Car";
+import Part from "./Page/Part";
 
 // Import the additional components for the new routes
 // import Home from "./Page/Home";
@@ -27,6 +31,12 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/Home" element={<Home/>} />
         <Route path="/Art" element={<Art />} />
+        <Route path="/Part" element={<Part />} />
+        
+        
+        <Route path="/Car" element={<Car />} />
+        <Route path="/AdminPanel" element={<AdminPanel />} />
+        <Route path="/Admindashboard" element={<Admindashboard />} />
         <Route path="/Contact" element={<ContactUs />} />
         
         {/* New Routes for Home, Shop, About Us, and Feedback */}

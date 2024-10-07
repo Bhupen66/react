@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { toast } from "react-toastify";
 
@@ -13,11 +13,9 @@ const Loader = () => (
 
 const Navbar = () => {
   const { isLogin, user, logout, setIsLogin, setUser } = useContext(AppContext);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -43,7 +41,7 @@ const Navbar = () => {
 
   const handleDashboardRedirect = () => {
     if (user.email === "admin@gmail.com") {
-      navigate("/admindashboard");
+      navigate("/Admindashboard");
     } else {
       navigate("/home");
     }
@@ -52,25 +50,36 @@ const Navbar = () => {
   return (
 
     <>
-    
-    
-    <nav className="bg-gray-800 p-4 shadow-md">
-            <div className="container mx-auto flex justify-between items-center">
-                <div className="text-white text-2xl font-bold">
-                    Car Dealer
-                </div>
-                <ul className="flex space-x-4">
-                    <li><a href="#" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Home</a></li>
-                    <li><a href="#" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Cars</a></li>
-                    <li><a href="#" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Parts</a></li>
-                    <li><a href="#" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Help</a></li>
-                    <li><a href="#" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Contact</a></li>
-                    <li><a href="#" className="text-white hover:bg-red-600 px-3 py-2 rounded">Logout</a></li>
-                </ul>
-            </div>
-        </nav>
-  
-  </>
+
+
+      <nav className=" bg-gray-800 w-full fixed p-4 shadow-md">
+        <div className="container mx-auto flex justify-between items-center">
+          {/* Left side: Logo */}
+          <div className="text-white text-2xl font-bold">
+            Car Dealer
+          </div>
+
+          {/* Center: Navigation Links */}
+          <ul className="flex space-x-4">
+            <li><a href="#" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Home</a></li>
+            <li><a href="/Car" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Cars</a></li>
+            <li><a href="/Part" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Parts</a></li>
+            <li><a href="#" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Contact</a></li>
+          </ul>
+
+          {/* Right side: Logout Button */}
+          <div className="flex space-x-4">
+            <a href="#" className="text-white hover:bg-gray-700 px-3 py-2 rounded">
+              Cart
+            </a>
+            <a href="/" className="text-white hover:bg-red-600 px-3 py-2 rounded">
+              Logout
+            </a>
+          </div>
+        </div>
+      </nav>
+
+    </>
   );
 };
 

@@ -29,7 +29,7 @@ function Signup() {
       return;
     }
 
-    // Handle form submission (e.g., call API to register user)
+    // Handle form submission (e.g., call API to cars and parts)
     try {
       const response = await fetch("http://localhost:5000/api/users/register", {
         method: "POST",
