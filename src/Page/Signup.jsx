@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -12,7 +14,6 @@ function Signup() {
     address: "",
     mobile: "",
   });
-  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -23,13 +24,17 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate password length
     if (formData.password.length < 6) {
-      setError("Password must be at least 6 characters long");
+      toast.error("Password must be at least 6 characters long", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
       return;
     }
 
-    // Handle form submission (e.g., call API to cars and parts)
     try {
       const response = await fetch("http://localhost:5000/api/users/register", {
         method: "POST",
@@ -41,31 +46,44 @@ function Signup() {
 
       const result = await response.json();
       if (response.ok) {
-        // On successful registration, navigate to login or home page
+        toast.success("Signup successful! Redirecting to login...", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+        });
         navigate("/login");
       } else {
-        // Set error if registration failed
-        setError(result.message);
+        toast.error(result.message || "Signup failed. Please try again.", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+        });
       }
     } catch (error) {
-      setError("An error occurred. Please try again.");
+      toast.error("An error occurred. Please try again.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg p-8 bg-white rounded shadow-md"
+        className="w-full max-w-lg p-8 bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105"
       >
-        <h2 className="text-2xl font-bold mb-6 text-center">Signup</h2>
-        {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Signup</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <div>
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="firstname"
-            >
+            <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="firstname">
               First Name
             </label>
             <input
@@ -74,15 +92,12 @@ function Signup() {
               name="firstname"
               value={formData.firstname}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
               required
             />
           </div>
           <div>
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="lastname"
-            >
+            <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="lastname">
               Last Name
             </label>
             <input
@@ -91,15 +106,12 @@ function Signup() {
               name="lastname"
               value={formData.lastname}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
               required
             />
           </div>
           <div>
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="username"
-            >
+            <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="username">
               Username
             </label>
             <input
@@ -108,15 +120,12 @@ function Signup() {
               name="username"
               value={formData.username}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
               required
             />
           </div>
           <div>
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="email"
-            >
+            <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="email">
               Email
             </label>
             <input
@@ -125,15 +134,12 @@ function Signup() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
               required
             />
           </div>
           <div>
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="password"
-            >
+            <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="password">
               Password
             </label>
             <input
@@ -142,15 +148,12 @@ function Signup() {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
               required
             />
           </div>
           <div>
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="gender"
-            >
+            <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="gender">
               Gender
             </label>
             <select
@@ -158,7 +161,7 @@ function Signup() {
               name="gender"
               value={formData.gender}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
               required
             >
               <option value="Male">Male</option>
@@ -167,10 +170,7 @@ function Signup() {
             </select>
           </div>
           <div>
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="address"
-            >
+            <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="address">
               Address
             </label>
             <input
@@ -179,15 +179,12 @@ function Signup() {
               name="address"
               value={formData.address}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
               required
             />
           </div>
           <div>
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="mobile"
-            >
+            <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="mobile">
               Mobile
             </label>
             <input
@@ -196,19 +193,19 @@ function Signup() {
               name="mobile"
               value={formData.mobile}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
               required
             />
           </div>
-          
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-bold py-2 px-4 rounded-lg transition duration-300 transform hover:scale-105"
         >
           Signup
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 }

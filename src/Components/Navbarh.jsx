@@ -61,15 +61,15 @@ const Navbar = () => {
 
           {/* Center: Navigation Links */}
           <ul className="flex space-x-4">
-            <li><a href="#" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Home</a></li>
+            <li><a href="/home" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Home</a></li>
             <li><a href="/Car" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Cars</a></li>
             <li><a href="/Part" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Parts</a></li>
-            <li><a href="#" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Contact</a></li>
+            <li><a href="/Contact" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Contact</a></li>
           </ul>
 
           {/* Right side: Logout Button */}
           <div className="flex space-x-4">
-            <a href="#" className="text-white hover:bg-gray-700 px-3 py-2 rounded">
+            <a href="/Cart" className="text-white hover:bg-gray-700 px-3 py-2 rounded">
               Cart
             </a>
             <a href="/" className="text-white hover:bg-red-600 px-3 py-2 rounded">

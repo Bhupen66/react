@@ -10,6 +10,7 @@ import Admindashboard from "./Page/Admindashboard";
 import AdminPanel from "./Page/AdminPanel";
 import Car from "./Page/Car";
 import Part from "./Page/Part";
+import Cart from "./Page/Cart";
 
 // Import the additional components for the new routes
 // import Home from "./Page/Home";
@@ -32,7 +33,7 @@ function App() {
         <Route path="/Home" element={<Home/>} />
         <Route path="/Art" element={<Art />} />
         <Route path="/Part" element={<Part />} />
-        
+        <Route path="/cart" element={<Cart />} />
         
         <Route path="/Car" element={<Car />} />
         <Route path="/AdminPanel" element={<AdminPanel />} />

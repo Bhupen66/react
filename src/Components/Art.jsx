@@ -40,36 +40,36 @@ const ArtGallery = () => {
 
   return (
     <>
-    <div className="w-full min-h-screen bg-gray-900 text-white">
-      <header className="text-center py-8">
-        <h1 className="text-4xl font-bold">3D Car Art Gallery</h1>
-        <p className="text-lg mt-2">Explore the featured car</p>
-      </header>
+      <div className="w-full min-h-screen bg-gray-900 text-white">
+        <header className="text-center py-8">
+          <h1 className="text-4xl font-bold">3D Car Art Gallery</h1>
+          <p className="text-lg mt-2">Explore the featured car</p>
+        </header>
 
-      <motion.div
-        className="flex w-full h-screen flex-col items-center space-y-10 overflow-y-auto"
-        style={{ opacity: scrollYProgress }}
-        >
         <motion.div
-          className="relative w-full h-100% max-w-lg"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          style={{
-            transform: `translateY(${scrollYProgress * 100}px)`,
-          }}
+          className="flex w-full h-screen flex-col items-center space-y-10 overflow-y-auto"
+          style={{ opacity: scrollYProgress }}
+        >
+          <motion.div
+            className="relative w-full h-100% max-w-lg"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              transform: `translateY(${scrollYProgress * 100}px)`,
+            }}
           >
-          {/* 3D Car Display */}
-          <CarGallery carModelUrl={cars[0].modelUrl} />
+            {/* 3D Car Display */}
+            <CarGallery carModelUrl={cars[0].modelUrl} />
 
-          {/* Creator Details Overlay */}
-          <div className="absolute bottom-0 left-0 bg-black bg-opacity-70 text-white p-4 opacity-0 hover:opacity-100 transition-opacity duration-500">
-            <h3 className="text-lg font-bold">{cars[0].title}</h3>
-            <p>Creator: {cars[0].creator}</p>
-          </div>
+            {/* Creator Details Overlay */}
+            <div className="absolute bottom-0 left-0 bg-black bg-opacity-70 text-white p-4 opacity-0 hover:opacity-100 transition-opacity duration-500">
+              <h3 className="text-lg font-bold">{cars[0].title}</h3>
+              <p>Creator: {cars[0].creator}</p>
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </div>
-</>
+      </div>
+    </>
   );
 };
 
